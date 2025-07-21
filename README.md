@@ -12,14 +12,24 @@
 ```
 telegram_bot_watermark/
 ├── bot/
-│   ├── __init__.py
-│   ├── telegram_bot.py
+│   ├── init.py
+│   ├── handlers.py
 │   ├── photo_processor.py
-│   └── watermark_manager.py
-├── .env
+│   ├── watermark_manager.py
+├── service/
+│   ├── init.py
+│   ├── watermark_photo.py
+│   ├── watermark_video.py
+├── watermark/
+│   ├── logo.png
+│   ├── logo_48.png
+│   ├── logo_video.png
+├── venv/                # виртуальное окружение
+├── .env                 # переменные окружения
+├── .gitignore
 ├── main.py
 ├── requirements.txt
-└── README.md
+├── README.md
 ```
 
 ---
@@ -34,7 +44,8 @@ telegram_bot_watermark/
 
 ```
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-LOGO_PATH=logo.png
+LOGO_PATH=watermark/logo.png
+LOGO_VIDEO_PATH=watermark/logo_video.png
 ```
 
 ---
@@ -76,7 +87,7 @@ deactivate
 
 ## 💡 Что делает скрипт
 
-- Получает `file_id` из Telegram (пока вручную в `main.py`)
+- Получает `file_id` из Telegram 
 - Скачивает фото
 - Добавляет на фото водяной знак (размер автоматически масштабируется)
 - Сохраняет файл как `output.jpg`
@@ -94,14 +105,8 @@ deactivate
 
 ---
 
-## 🛡 .gitignore (пример)
 
-```
-.env
-venv/
-__pycache__/
-```
 
 ---
 
-**Автор:** 🚀 @yournamehere
+**Автор:** 🚀 aleksandrmajlo@gmail.com

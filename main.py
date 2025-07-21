@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters import Command
 import asyncio
-from bot.handlers import handle_photo, start
+from bot.handlers import handle_photo, handle_video, start
 
 async def main():
     load_dotenv()
@@ -20,6 +20,8 @@ async def main():
     # Photo
     dp.message.register(handle_photo, lambda msg: msg.photo)
 
+    # Video
+    dp.message.register(handle_video, lambda msg: msg.video)
 
     await dp.start_polling(bot)
 
